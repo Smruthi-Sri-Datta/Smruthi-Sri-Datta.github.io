@@ -9,191 +9,276 @@
 </head>
 
 <body>
-  <header class="container header">
-    <div class="topbar">
-      <div class="brand">Smruthi Sri Datta</div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">Smruthi Sri Datta</span>
+      </a>
+
       <nav class="nav">
         <a href="#about">About</a>
         <a href="#research">Research</a>
-        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="nav-cta">Contact</a>
       </nav>
-    </div>
-
-    <div class="hero">
-      <h1>AI Master's Student • Research Assistant • IEEE CloudCom 2025 Author</h1>
-      <p class="subtitle">
-        Focus: time-series modeling, smart agriculture, IoT-integrated deep learning, interpretable AI.
-      </p>
-
-      <div class="buttons">
-        <a class="btn primary" href="https://linkedin.com/in/smruthisridatta" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a class="btn" href="https://github.com/Smruthi-Sri-Datta" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="btn" href="mailto:smruthisridatta29@gmail.com">Email</a>
-      </div>
-
-      <div class="chips">
-        <span class="chip">Python</span>
-        <span class="chip">Machine Learning</span>
-        <span class="chip">Deep Learning</span>
-        <span class="chip">TensorFlow</span>
-        <span class="chip">PyTorch</span>
-        <span class="chip">Time-Series</span>
-      </div>
     </div>
   </header>
 
-  <main class="container">
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <h2>About</h2>
-      <p>
-        Smruthi Sri Datta is pursuing an M.S. in Artificial Intelligence at National Yunlin University of Science & Technology (NYUST), Taiwan.
-        Current work includes applied AI for smart agriculture and environmental monitoring as a Research Assistant in the Intelligent Data & Edge Analytics Lab (IDEAL Lab).
-      </p>
-      <p class="muted">
-        Location: Yunlin, Taiwan • Email: smruthisridatta29@gmail.com
-      </p>
-    </section>
-
-    <!-- RESEARCH -->
-    <section id="research" class="section">
-      <h2>Featured Research</h2>
-
-      <div class="card">
-        <div class="card-head">
-          <h3>TCAN-AgriCloud</h3>
-          <span class="tag">Accepted • IEEE CloudCom 2025</span>
-        </div>
-        <p>
-          Cloud-enabled IoT-integrated deep learning framework for spatio-temporal crop yield prediction.
-          Uses Temporal Convolutional Networks (TCN) for temporal modeling, Kolmogorov–Arnold Networks (KAN) for adaptive nonlinear feature learning,
-          and SHAP-based interpretability.
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">AI • Research • Applied Systems</p>
+        <h1 class="title">AI Master’s Student • Research Assistant • IEEE CloudCom 2025 Author</h1>
+        <p class="lead">
+          Focus on time-series modeling, smart agriculture, IoT-integrated deep learning, and interpretable AI.
         </p>
-        <div class="links">
-          <a href="https://github.com/Smruthi-Sri-Datta/TCAN-AgriCloud" target="_blank" rel="noreferrer">Repository</a>
-          <a href="https://github.com/Smruthi-Sri-Datta/TCAN-AgriCloud/blob/main/docs/architecture.md" target="_blank" rel="noreferrer">Architecture Notes</a>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="https://linkedin.com/in/smruthisridatta" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="https://github.com/Smruthi-Sri-Datta" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="mailto:smruthisridatta29@gmail.com">Email</a>
+        </div>
+
+        <div class="chips" aria-label="Key skills">
+          <span class="chip">Python</span>
+          <span class="chip">Machine Learning</span>
+          <span class="chip">Deep Learning</span>
+          <span class="chip">TensorFlow</span>
+          <span class="chip">PyTorch</span>
+          <span class="chip">Time-Series</span>
         </div>
       </div>
     </section>
 
-    <!-- SKILLS -->
+    <!-- CONTENT -->
     <section class="section">
-      <h2>Skills</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Programming</h3>
-          <ul>
-            <li>Python</li>
-            <li>C++</li>
-            <li>Java</li>
-            <li>HTML / CSS</li>
-            <li>SQL (Basics)</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>AI / ML</h3>
-          <ul>
-            <li>Machine Learning</li>
-            <li>Deep Learning</li>
-            <li>NLP</li>
-            <li>Time-series forecasting</li>
-            <li>Interpretability (SHAP)</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Frameworks & Tools</h3>
-          <ul>
-            <li>TensorFlow</li>
-            <li>PyTorch</li>
-            <li>Scikit-learn</li>
-            <li>Pandas / NumPy</li>
-            <li>Flask</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+      <div class="container">
+        <!-- ABOUT -->
+        <div id="about" class="block">
+          <div class="block-head">
+            <h2>About</h2>
+            <p class="muted">
+              Based in Yunlin, Taiwan • <a href="mailto:smruthisridatta29@gmail.com">smruthisridatta29@gmail.com</a>
+            </p>
+          </div>
 
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section">
-      <h2>Experience</h2>
-
-      <div class="card">
-        <h3>Research Assistant — IDEAL Lab, NYUST (Sept 2024 – Present)</h3>
-        <ul>
-          <li>Applied AI to environmental monitoring and smart agriculture.</li>
-          <li>Drafted proposals on water quality, UAV salinity, and biomass/yield forecasting.</li>
-          <li>Extended TCAN-AgriCloud for scalable IoT-enabled precision agriculture.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Programmer Analyst Trainee — Cognizant (Sept 2023 – July 2024)</h3>
-        <ul>
-          <li>Contributed to banking-sector solutions with Spring Boot & Angular.</li>
-          <li>Worked on backend services, UI development, and Temenos T24.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Full Stack Intern — Cognizant (Mar 2023 – Aug 2023)</h3>
-        <ul>
-          <li>Built e-commerce web apps using Java, SQL, Angular, Maven, Spring.</li>
-          <li>Collaborated on REST APIs with Swagger; enhanced front-end functionality.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
-      <h2>Projects</h2>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Autonomous River Cleaning Robot</h3>
-          <p>
-            Embedded systems + IoT project using GPS and Arduino UNO to collect floating debris. Designed for sustainability-focused water cleaning.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Studyflow Concierge Agent</h3>
-          <p>
-            Python-based concierge-style study planning agent for students.
-          </p>
-          <div class="links">
-            <a href="https://github.com/Smruthi-Sri-Datta/studyflow-concierge-agent" target="_blank" rel="noreferrer">Repository</a>
+          <div class="card">
+            <p>
+              Smruthi Sri Datta is pursuing an M.S. in Artificial Intelligence at National Yunlin University of Science & Technology (NYUST), Taiwan.
+              Current work includes applied AI for smart agriculture and environmental monitoring as a Research Assistant in the Intelligent Data & Edge Analytics Lab (IDEAL Lab).
+            </p>
           </div>
         </div>
+
+        <!-- RESEARCH -->
+        <div id="research" class="block">
+          <div class="block-head">
+            <h2>Featured Research</h2>
+            <p class="muted">Flagship research repository aligned to the accepted IEEE CloudCom 2025 paper.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <h3 class="card-title">TCAN-AgriCloud</h3>
+                <p class="muted small">Cloud-enabled IoT-integrated framework for spatio-temporal crop yield prediction</p>
+              </div>
+              <span class="pill">Accepted • IEEE CloudCom 2025</span>
+            </div>
+
+            <div class="two-col">
+              <div>
+                <p class="small">
+                  Temporal Convolutional Networks (TCN) for temporal modeling, Kolmogorov–Arnold Networks (KAN) for adaptive nonlinear learning,
+                  and SHAP-based interpretability for transparent predictions.
+                </p>
+              </div>
+              <div class="meta">
+                <div class="meta-row"><span class="k">Focus</span><span class="v">Time-series • Interpretability • Cloud</span></div>
+                <div class="meta-row"><span class="k">Domain</span><span class="v">Smart Agriculture</span></div>
+                <div class="meta-row"><span class="k">Type</span><span class="v">Research system</span></div>
+              </div>
+            </div>
+
+            <div class="links">
+              <a class="link" href="https://github.com/Smruthi-Sri-Datta/TCAN-AgriCloud" target="_blank" rel="noreferrer">Repository</a>
+              <a class="link" href="https://github.com/Smruthi-Sri-Datta/TCAN-AgriCloud/blob/main/docs/architecture.md" target="_blank" rel="noreferrer">Architecture Notes</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SKILLS -->
+        <div id="skills" class="block">
+          <div class="block-head">
+            <h2>Skills</h2>
+            <p class="muted">Core stack used across research and industry projects.</p>
+          </div>
+
+          <div class="grid">
+            <div class="card">
+              <h3 class="card-title">Programming</h3>
+              <ul class="list">
+                <li>Python</li>
+                <li>C++</li>
+                <li>Java</li>
+                <li>HTML / CSS</li>
+                <li>SQL (Basics)</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h3 class="card-title">AI / ML</h3>
+              <ul class="list">
+                <li>Machine Learning</li>
+                <li>Deep Learning</li>
+                <li>NLP</li>
+                <li>Time-series forecasting</li>
+                <li>Interpretability (SHAP)</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h3 class="card-title">Frameworks & Tools</h3>
+              <ul class="list">
+                <li>TensorFlow</li>
+                <li>PyTorch</li>
+                <li>Scikit-learn</li>
+                <li>Pandas / NumPy</li>
+                <li>Flask</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <div id="experience" class="block">
+          <div class="block-head">
+            <h2>Experience</h2>
+            <p class="muted">Research + industry experience.</p>
+          </div>
+
+          <div class="stack">
+            <div class="card">
+              <div class="row">
+                <h3 class="card-title">Research Assistant — IDEAL Lab, NYUST</h3>
+                <span class="muted small">Sept 2024 – Present</span>
+              </div>
+              <ul class="list">
+                <li>Applied AI to environmental monitoring and smart agriculture.</li>
+                <li>Drafted proposals on water quality, UAV salinity, and biomass/yield forecasting.</li>
+                <li>Extended TCAN-AgriCloud for scalable IoT-enabled precision agriculture.</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <div class="row">
+                <h3 class="card-title">Programmer Analyst Trainee — Cognizant</h3>
+                <span class="muted small">Sept 2023 – July 2024</span>
+              </div>
+              <ul class="list">
+                <li>Contributed to banking-sector solutions with Spring Boot & Angular.</li>
+                <li>Worked on backend services, UI development, and Temenos T24.</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <div class="row">
+                <h3 class="card-title">Full Stack Intern — Cognizant</h3>
+                <span class="muted small">Mar 2023 – Aug 2023</span>
+              </div>
+              <ul class="list">
+                <li>Built e-commerce web apps using Java, SQL, Angular, Maven, Spring.</li>
+                <li>Collaborated on REST APIs with Swagger; enhanced front-end functionality.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECTS -->
+        <div id="projects" class="block">
+          <div class="block-head">
+            <h2>Projects</h2>
+            <p class="muted">A mix of embedded systems, applied AI, and web projects.</p>
+          </div>
+
+          <div class="grid">
+            <div class="card">
+              <h3 class="card-title">Autonomous River Cleaning Robot</h3>
+              <p class="small">
+                Embedded systems + IoT project using GPS and Arduino UNO to collect floating debris. Designed for sustainability-focused water cleaning.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3 class="card-title">Studyflow Concierge Agent</h3>
+              <p class="small">
+                Python-based concierge-style study planning agent for students.
+              </p>
+              <div class="links">
+                <a class="link" href="https://github.com/Smruthi-Sri-Datta/studyflow-concierge-agent" target="_blank" rel="noreferrer">Repository</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3 class="card-title">Music-Melody</h3>
+              <p class="small">
+                HTML/CSS learning project exploring simple web interactions.
+              </p>
+              <div class="links">
+                <a class="link" href="https://github.com/Smruthi-Sri-Datta/Music-Melody" target="_blank" rel="noreferrer">Repository</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACHIEVEMENTS -->
+        <div class="block">
+          <div class="block-head">
+            <h2>Achievements</h2>
+            <p class="muted">Selected awards and recognition.</p>
+          </div>
+
+          <div class="card">
+            <ul class="list">
+              <li>Excellent Award — 2024 Soil & Groundwater Research Competition (Taiwan Ministry of Environment)</li>
+              <li>GenC Super Squad Award — Cognizant Technology Solutions</li>
+              <li>Best Paper Award — IEEE CloudCom 2025 (China)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CONTACT -->
+        <div id="contact" class="block">
+          <div class="block-head">
+            <h2>Contact</h2>
+            <p class="muted">Open to research and engineering opportunities.</p>
+          </div>
+
+          <div class="card contact">
+            <div class="contact-row">
+              <span class="k">Email</span>
+              <span class="v"><a href="mailto:smruthisridatta29@gmail.com">smruthisridatta29@gmail.com</a></span>
+            </div>
+            <div class="contact-row">
+              <span class="k">LinkedIn</span>
+              <span class="v"><a href="https://linkedin.com/in/smruthisridatta" target="_blank" rel="noreferrer">linkedin.com/in/smruthisridatta</a></span>
+            </div>
+            <div class="contact-row">
+              <span class="k">GitHub</span>
+              <span class="v"><a href="https://github.com/Smruthi-Sri-Datta" target="_blank" rel="noreferrer">github.com/Smruthi-Sri-Datta</a></span>
+            </div>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <p class="muted small">© <span id="year"></span> Smruthi Sri Datta</p>
+        </footer>
       </div>
     </section>
-
-    <!-- ACHIEVEMENTS -->
-    <section class="section">
-      <h2>Achievements</h2>
-      <div class="card">
-        <ul>
-          <li>Excellent Award — 2024 Soil & Groundwater Research Competition (Taiwan Ministry of Environment)</li>
-          <li>GenC Super Squad Award — Cognizant Technology Solutions</li>
-          <li>Best Paper Award — IEEE CloudCom 2025 (China)</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <div class="card">
-        <p><strong>Email:</strong> <a href="mailto:dattasmruthi@gmail.com">smruthisridatta29@gmail.com</a></p>
-        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/smruthisridatta" target="_blank" rel="noreferrer">linkedin.com/in/smruthisridatta</a></p>
-        <p><strong>GitHub:</strong> <a href="https://github.com/Smruthi-Sri-Datta" target="_blank" rel="noreferrer">github.com/Smruthi-Sri-Datta</a></p>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <p class="muted">© <span id="year"></span> Smruthi Sri Datta • Built with GitHub Pages</p>
-    </footer>
   </main>
 
   <script>
