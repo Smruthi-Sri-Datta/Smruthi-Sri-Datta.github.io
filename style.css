@@ -10,6 +10,8 @@
 
 *{box-sizing:border-box}
 
+html, body { height: 100%; }
+
 body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
@@ -23,25 +25,27 @@ body{
 a{color:var(--accent); text-decoration:none}
 a:hover{text-decoration:underline}
 
-/* Slightly tighter top padding feels better with sticky header */
 .container{max-width:980px; margin:0 auto; padding:22px 18px}
-.header{padding-top:18px}
 
-/* Sticky header */
-.topbar{
+/* ✅ Sticky wrapper (reliable across browsers) */
+.sticky-wrap{
   position: sticky;
-  top: 12px;              /* distance from top when sticking */
-  z-index: 1000;          /* keeps it above cards/sections */
+  top: 0;
+  z-index: 2000;
+  padding: 12px 0;
+  background: rgba(11,15,25,.65);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(39,50,68,.55);
+}
 
+/* Topbar itself stays normal; wrapper handles sticky behavior */
+.topbar{
   display:flex; align-items:center; justify-content:space-between;
   gap:16px;
   border:1px solid var(--line);
-  background:rgba(17,24,39,.72);  /* slightly more solid for readability */
-  backdrop-filter: blur(10px);
+  background:rgba(17,24,39,.72);
   padding:12px 14px;
   border-radius:16px;
-
-  /* subtle depth so it looks like it floats */
   box-shadow: 0 10px 28px rgba(0,0,0,.22);
 }
 
@@ -50,7 +54,10 @@ a:hover{text-decoration:underline}
 .nav a{color:var(--text); opacity:.9}
 .nav a:hover{opacity:1}
 
-.hero{padding:26px 4px 0}
+/* hero now begins below sticky header naturally */
+.header{padding-top:6px}
+.hero{padding:22px 4px 0}
+
 h1{font-size:28px; margin:18px 0 8px}
 .subtitle{color:var(--muted); max-width:72ch}
 
@@ -108,4 +115,5 @@ h3{font-size:16px; margin:0 0 8px}
 }
 .links{display:flex; gap:14px; flex-wrap:wrap; margin-top:8px}
 .footer{margin-top:30px; border-top:1px solid var(--line); padding-top:14px}
+
 
