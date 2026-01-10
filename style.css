@@ -9,6 +9,7 @@
 }
 
 *{box-sizing:border-box}
+
 body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
@@ -22,15 +23,28 @@ body{
 a{color:var(--accent); text-decoration:none}
 a:hover{text-decoration:underline}
 
-.container{max-width:980px; margin:0 auto; padding:28px 18px}
-.header{padding-top:22px}
+/* Slightly tighter top padding feels better with sticky header */
+.container{max-width:980px; margin:0 auto; padding:22px 18px}
+.header{padding-top:18px}
 
+/* Sticky header */
 .topbar{
+  position: sticky;
+  top: 12px;              /* distance from top when sticking */
+  z-index: 1000;          /* keeps it above cards/sections */
+
   display:flex; align-items:center; justify-content:space-between;
-  gap:16px; border:1px solid var(--line); background:rgba(17,24,39,.55);
+  gap:16px;
+  border:1px solid var(--line);
+  background:rgba(17,24,39,.72);  /* slightly more solid for readability */
   backdrop-filter: blur(10px);
-  padding:12px 14px; border-radius:16px;
+  padding:12px 14px;
+  border-radius:16px;
+
+  /* subtle depth so it looks like it floats */
+  box-shadow: 0 10px 28px rgba(0,0,0,.22);
 }
+
 .brand{font-weight:700; letter-spacing:.2px}
 .nav{display:flex; gap:14px; flex-wrap:wrap}
 .nav a{color:var(--text); opacity:.9}
@@ -94,3 +108,4 @@ h3{font-size:16px; margin:0 0 8px}
 }
 .links{display:flex; gap:14px; flex-wrap:wrap; margin-top:8px}
 .footer{margin-top:30px; border-top:1px solid var(--line); padding-top:14px}
+
