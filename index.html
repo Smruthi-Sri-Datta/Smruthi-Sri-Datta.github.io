@@ -1,198 +1,720 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Smruthi Sri Datta | AI & Research</title>
-  <meta name="description" content="Smruthi Sri Datta — AI Master's student at NYUST, Research Assistant, IEEE CloudCom 2025 Author." />
-  <!--  cache-busted CSS -->
-  <link rel="stylesheet" href="style.css?v=4" />
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smruthi Sri Datta — AI Engineer & Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:           #0c0b08;
+      --bg2:          #111008;
+      --bg3:          #181508;
+      --bg4:          #1e1a0a;
+      --border:       rgba(255,220,100,0.08);
+      --border-mid:   rgba(255,220,100,0.14);
+      --text:         #f0ead8;
+      --text-muted:   #5a5440;
+      --text-mid:     #9a9070;
+      --amber:        #e8a020;
+      --amber-light:  #f5c050;
+      --amber-dim:    rgba(232,160,32,0.12);
+      --green:        #3d8a4a;
+      --green-light:  #4daa5e;
+      --green-dim:    rgba(61,138,74,0.12);
+      --card:         rgba(255,220,100,0.025);
+      --card-hover:   rgba(255,220,100,0.05);
+      --shadow:       0 32px 80px rgba(0,0,0,0.6);
+      --radius:       14px;
+    }
+    [data-theme="light"] {
+      --bg:           #faf7f0;
+      --bg2:          #f3ede0;
+      --bg3:          #ece5d0;
+      --bg4:          #e5dcc0;
+      --border:       rgba(100,80,20,0.1);
+      --border-mid:   rgba(100,80,20,0.18);
+      --text:         #1c1808;
+      --text-muted:   #b0a880;
+      --text-mid:     #6a6040;
+      --amber:        #c07010;
+      --amber-light:  #e08820;
+      --amber-dim:    rgba(192,112,16,0.1);
+      --green:        #2e6e38;
+      --green-light:  #3a8a48;
+      --green-dim:    rgba(46,110,56,0.1);
+      --card:         rgba(100,80,20,0.04);
+      --card-hover:   rgba(100,80,20,0.07);
+      --shadow:       0 24px 60px rgba(80,60,0,0.1);
+    }
 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      transition: background 0.35s, color 0.35s;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 9999; opacity: 0.5;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem;
+      background: rgba(12,11,8,0.85);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.35s;
+    }
+    [data-theme="light"] nav { background: rgba(250,247,240,0.9); }
+    .nav-logo { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.15rem; }
+    .nav-logo em { color: var(--amber); font-style: normal; }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a { font-size: 0.83rem; font-weight: 500; color: var(--text-mid); letter-spacing: 0.02em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .theme-btn {
+      background: var(--card); border: 1px solid var(--border-mid); border-radius: 50px;
+      padding: 0.38rem 0.9rem; cursor: pointer; font-size: 0.82rem;
+      font-family: 'DM Sans', sans-serif; color: var(--text-mid);
+      transition: all 0.2s;
+    }
+    .theme-btn:hover { color: var(--text); background: var(--card-hover); }
+
+    /* LAYOUT */
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+    section { padding: 7rem 0; }
+    .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border-mid), transparent); position: relative; z-index: 1; }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding-top: 5rem; position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: ''; position: absolute; top: -10%; right: -5%;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(232,160,32,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1fr 260px; gap: 4rem; align-items: center; width: 100%; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--green-dim); border: 1px solid rgba(61,138,74,0.3);
+      border-radius: 50px; padding: 0.38rem 1rem;
+      font-size: 0.76rem; font-weight: 600; color: var(--green-light);
+      letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 1.5rem;
+      animation: rise 0.7s ease both;
+    }
+    .hero-badge::before { content: '●'; font-size: 0.45rem; animation: blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 6.5vw, 5.2rem);
+      font-weight: 900; letter-spacing: -0.03em; line-height: 0.95;
+      margin-bottom: 1.2rem; animation: rise 0.7s 0.1s ease both;
+    }
+    .hero-name .outline { color: transparent; -webkit-text-stroke: 1.5px var(--text-muted); }
+    .hero-sub {
+      font-size: 1.05rem; color: var(--text-mid); font-weight: 300;
+      max-width: 500px; line-height: 1.75; margin-bottom: 2.2rem;
+      animation: rise 0.7s 0.2s ease both;
+    }
+    .hero-sub strong { color: var(--text); font-weight: 500; }
+    .hero-cta { display: flex; gap: 0.85rem; flex-wrap: wrap; animation: rise 0.7s 0.3s ease both; }
+    .btn-amber {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      background: var(--amber); color: #0c0b08;
+      padding: 0.72rem 1.55rem; border-radius: 9px;
+      font-size: 0.88rem; font-weight: 600; transition: all 0.2s;
+      box-shadow: 0 6px 20px rgba(232,160,32,0.3);
+    }
+    .btn-amber:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(232,160,32,0.4); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      background: transparent; color: var(--text);
+      padding: 0.72rem 1.55rem; border-radius: 9px;
+      font-size: 0.88rem; font-weight: 500;
+      border: 1px solid var(--border-mid); transition: all 0.2s;
+    }
+    .btn-ghost:hover { background: var(--card-hover); border-color: rgba(232,160,32,0.2); }
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin-top: 2.8rem;
+      padding-top: 2.2rem; border-top: 1px solid var(--border);
+      animation: rise 0.7s 0.4s ease both;
+    }
+    .stat-n { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 900; line-height: 1; }
+    .stat-n em { color: var(--amber); font-style: normal; }
+    .stat-l { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 0.2rem; }
+    .photo-frame { position: relative; animation: rise 0.7s 0.2s ease both; }
+    .photo-frame::before {
+      content: ''; position: absolute; inset: -2px; border-radius: 20px;
+      background: linear-gradient(135deg, var(--amber), var(--green), transparent 60%);
+      opacity: 0.5;
+    }
+    .photo-img, .photo-placeholder {
+      width: 260px; height: 320px; border-radius: 18px;
+      display: block; position: relative; z-index: 1;
+      border: 1px solid var(--border);
+    }
+    .photo-img { object-fit: cover; }
+    .photo-placeholder { background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 5rem; }
+    @keyframes rise { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:none} }
+
+    /* SECTION HEADER */
+    .s-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.6rem; }
+    .s-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 0.9rem; }
+    .s-sub { color: var(--text-mid); font-size: 0.96rem; font-weight: 300; max-width: 500px; line-height: 1.75; }
+    .s-head { margin-bottom: 3rem; }
+
+    /* VOICEFORGE */
+    .vf-card { background: var(--bg2); border: 1px solid var(--border-mid); border-radius: 22px; overflow: hidden; position: relative; }
+    .vf-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--amber), var(--green)); }
+    .vf-grid { display: grid; grid-template-columns: 1fr 370px; }
+    .vf-left { padding: 3rem; }
+    .vf-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: var(--amber-dim); border: 1px solid rgba(232,160,32,0.25);
+      border-radius: 6px; padding: 0.28rem 0.7rem;
+      font-size: 0.7rem; font-weight: 700; color: var(--amber);
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1.1rem;
+    }
+    .vf-title { font-family: 'Playfair Display', serif; font-size: 2.1rem; font-weight: 900; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 1rem; }
+    .vf-desc { font-size: 0.9rem; color: var(--text-mid); line-height: 1.8; font-weight: 300; margin-bottom: 1.6rem; }
+    .vf-desc strong { color: var(--text); font-weight: 600; }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.8rem; }
+    .chip { background: var(--bg3); border: 1px solid var(--border); border-radius: 5px; padding: 0.22rem 0.6rem; font-size: 0.72rem; font-weight: 500; color: var(--text-mid); font-family: 'DM Mono', monospace; }
+    .vf-links { display: flex; gap: 0.75rem; }
+    .vf-right { background: var(--bg3); border-left: 1px solid var(--border); padding: 2.5rem; display: flex; flex-direction: column; gap: 0.65rem; }
+    .arch-label { font-size: 0.67rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.2rem; }
+    .arch-row { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 0.8rem 1rem; display: flex; align-items: center; gap: 0.75rem; font-size: 0.8rem; transition: border-color 0.2s; }
+    .arch-row:hover { border-color: var(--border-mid); }
+    .arch-ico { width: 30px; height: 30px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; flex-shrink: 0; }
+    .arch-row-name { font-weight: 600; color: var(--text); font-size: 0.82rem; }
+    .arch-row-sub { font-size: 0.7rem; color: var(--text-muted); }
+    .arch-arrow { text-align: center; color: var(--text-muted); font-size: 0.75rem; }
+    .vf-cost { margin-top: auto; background: var(--bg2); border: 1px solid rgba(61,138,74,0.25); border-radius: 10px; padding: 0.8rem 1rem; display: flex; justify-content: space-between; align-items: center; }
+    .vf-cost-label { font-size: 0.72rem; color: var(--text-muted); }
+    .vf-cost-val { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--green-light); }
+
+    /* RESEARCH */
+    .research-stack { display: flex; flex-direction: column; gap: 1.25rem; }
+    .paper-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 2rem 2.25rem 2rem 2.75rem;
+      transition: all 0.25s; position: relative; overflow: hidden;
+    }
+    .paper-card:hover { background: var(--card-hover); border-color: var(--border-mid); transform: translateY(-3px); box-shadow: var(--shadow); }
+    .paper-card::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; border-radius: 3px 0 0 3px; }
+    .paper-card.p1::after { background: var(--amber); }
+    .paper-card.p2::after { background: var(--green); }
+    .paper-card.p3::after { background: linear-gradient(180deg, var(--amber), var(--green)); }
+    .paper-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+    .paper-badges { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em;
+      text-transform: uppercase; padding: 0.22rem 0.6rem; border-radius: 4px;
+    }
+    .badge-pub  { background: rgba(61,138,74,0.12); color: var(--green-light); border: 1px solid rgba(61,138,74,0.25); }
+    .badge-review { background: rgba(232,160,32,0.1); color: var(--amber); border: 1px solid rgba(232,160,32,0.2); }
+    .badge-wip  { background: var(--card); color: var(--text-muted); border: 1px solid var(--border-mid); }
+    .badge-award { background: rgba(251,191,36,0.1); color: #f5c030; border: 1px solid rgba(251,191,36,0.2); }
+    .paper-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: var(--bg4); line-height: 1; flex-shrink: 0; user-select: none; }
+    [data-theme="light"] .paper-num { color: var(--bg4); }
+
+    /* paper body: text left, metrics right */
+    .paper-body { display: grid; grid-template-columns: 1fr auto; gap: 2.5rem; align-items: start; }
+    .paper-title { font-family: 'Playfair Display', serif; font-size: 1.08rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.35; margin-bottom: 0.7rem; }
+    .paper-desc { font-size: 0.86rem; color: var(--text-mid); line-height: 1.75; font-weight: 300; margin-bottom: 0.9rem; }
+    .paper-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .pill { background: var(--bg3); border: 1px solid var(--border); border-radius: 5px; padding: 0.22rem 0.6rem; font-size: 0.72rem; font-weight: 600; color: var(--text); }
+    .pill em { color: var(--amber); font-style: normal; }
+    .paper-venue { font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem; padding-top: 0.9rem; border-top: 1px solid var(--border); }
+    .paper-link { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; color: var(--amber); font-weight: 500; margin-top: 0.45rem; transition: gap 0.2s; }
+    .paper-link:hover { gap: 0.5rem; }
+
+    /* metrics sidebar */
+    .metrics-side { display: flex; flex-direction: column; gap: 0.6rem; min-width: 155px; }
+    .m-box { background: var(--bg3); border: 1px solid var(--border); border-radius: 9px; padding: 0.7rem 0.9rem; text-align: center; }
+    .m-val { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 900; color: var(--amber); letter-spacing: -0.02em; line-height: 1; }
+    .m-val.g { color: var(--green-light); }
+    .m-lbl { font-size: 0.67rem; color: var(--text-muted); margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* sota box */
+    .sota-box { background: var(--bg3); border: 1px solid var(--border); border-radius: 9px; padding: 0.9rem 1rem; min-width: 175px; }
+    .sota-title { font-size: 0.67rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--text-muted); margin-bottom: 0.65rem; }
+    .sota-row { display: flex; justify-content: space-between; font-size: 0.74rem; padding: 0.2rem 0; }
+    .sota-row .l { color: var(--text-mid); }
+    .sota-row .r { color: var(--text); font-weight: 500; }
+    .sota-row.ours .l { color: var(--amber); font-weight: 700; }
+    .sota-row.ours .r { color: var(--amber); font-weight: 700; }
+    .sota-hr { height: 1px; background: var(--border); margin: 0.35rem 0; }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.1rem; }
+    .sk-group { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.4rem; transition: all 0.22s; }
+    .sk-group:hover { background: var(--card-hover); border-color: var(--border-mid); }
+    .sk-title { font-size: 0.67rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.9rem; }
+    .sk-tags { display: flex; flex-wrap: wrap; gap: 0.38rem; }
+    .sk-tag { background: var(--bg3); border: 1px solid var(--border); border-radius: 5px; padding: 0.22rem 0.55rem; font-size: 0.73rem; color: var(--text-mid); font-weight: 500; }
+
+    /* EXPERIENCE */
+    .exp-list { display: flex; flex-direction: column; }
+    .exp-row { display: grid; grid-template-columns: 150px 1fr; gap: 2rem; padding: 2.4rem 0; border-bottom: 1px solid var(--border); }
+    .exp-row:first-child { padding-top: 0; }
+    .exp-row:last-child { border-bottom: none; }
+    .exp-date { font-size: 0.76rem; color: var(--text-muted); font-weight: 500; padding-top: 0.3rem; }
+    .exp-org { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--green-light); margin-bottom: 0.3rem; }
+    .exp-role { font-family: 'Playfair Display', serif; font-size: 1.08rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.7rem; }
+    .exp-body { font-size: 0.86rem; color: var(--text-mid); line-height: 1.8; font-weight: 300; }
+    .exp-body ul { padding-left: 1rem; }
+    .exp-body li { margin-bottom: 0.35rem; }
+    .exp-body strong { color: var(--text); font-weight: 600; }
+    .exp-chips { display: flex; flex-wrap: wrap; gap: 0.38rem; margin-top: 0.9rem; }
+
+    /* CONTACT */
+    #contact { padding-bottom: 5rem; }
+    .contact-box { background: var(--bg2); border: 1px solid var(--border-mid); border-radius: 22px; padding: 4.5rem 3rem; text-align: center; position: relative; overflow: hidden; }
+    .contact-box::before { content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 500px; height: 500px; background: radial-gradient(circle, rgba(232,160,32,0.06) 0%, transparent 60%); pointer-events: none; }
+    .contact-title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5.5vw, 3.8rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-bottom: 1rem; }
+    .contact-sub { color: var(--text-mid); font-size: 0.96rem; font-weight: 300; max-width: 440px; margin: 0 auto 2.5rem; line-height: 1.75; }
+    .contact-row { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; }
+    .c-chip { display: inline-flex; align-items: center; gap: 0.45rem; background: var(--card); border: 1px solid var(--border-mid); border-radius: 50px; padding: 0.6rem 1.3rem; font-size: 0.84rem; font-weight: 500; color: var(--text-mid); transition: all 0.2s; }
+    .c-chip:hover { background: var(--card-hover); color: var(--text); border-color: rgba(232,160,32,0.3); transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer { padding: 1.8rem 0; border-top: 1px solid var(--border); font-size: 0.76rem; color: var(--text-muted); position: relative; z-index: 1; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.vis { opacity: 1; transform: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .photo-frame { display: none; }
+      .vf-grid { grid-template-columns: 1fr; }
+      .vf-right { border-left: none; border-top: 1px solid var(--border); }
+      .paper-body { grid-template-columns: 1fr; }
+      .metrics-side, .sota-box { display: none; }
+      .skills-grid { grid-template-columns: repeat(2,1fr); }
+      .exp-row { grid-template-columns: 1fr; gap: 0.4rem; }
+      section { padding: 5rem 0; }
+      .contact-box { padding: 3rem 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      .skills-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+    }
+  </style>
+</head>
 <body>
 
-  <!--  Sticky Header Wrapper -->
-  <div class="sticky-wrap">
-    <div class="container">
-      <div class="topbar">
-        <div class="brand">Smruthi Sri Datta</div>
-        <nav class="nav">
-          <a href="#about">About</a>
-          <a href="#research">Research</a>
-          <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
-        </nav>
+<nav>
+  <div class="nav-logo">Smruthi<em>.</em></div>
+  <ul class="nav-links">
+    <li><a href="#voiceforge">Projects</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">☀️ Light</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge">Open to Work · Taiwan · Remote</div>
+        <h1 class="hero-name">Smruthi<br/><span class="outline">Sri Datta</span></h1>
+        <p class="hero-sub">
+          I build <strong>production AI systems</strong> and publish research.
+          M.S. in AI at NYUST, Taiwan — <strong>GPA 4.0/4.0</strong>.
+          <strong>IEEE CloudCom 2025 Best Paper Award.</strong>
+        </p>
+        <div class="hero-cta">
+          <a href="https://voiceforge-gamma.vercel.app" target="_blank" class="btn-amber">🎙️ Try VoiceForge</a>
+          <a href="https://linkedin.com/in/smruthisridatta" target="_blank" class="btn-ghost">LinkedIn ↗</a>
+          <a href="https://github.com/Smruthi-Sri-Datta" target="_blank" class="btn-ghost">GitHub ↗</a>
+        </div>
+        <div class="hero-stats">
+          <div><div class="stat-n">3<em>+</em></div><div class="stat-l">Papers</div></div>
+          <div><div class="stat-n">16</div><div class="stat-l">Languages</div></div>
+          <div><div class="stat-n">4<em>.0</em></div><div class="stat-l">GPA</div></div>
+          <div><div class="stat-n">$1<em>.9</em></div><div class="stat-l">/ mo infra</div></div>
+        </div>
+      </div>
+      <div class="photo-frame">
+        <!-- Replace with: <img src="photo.jpg" class="photo-img" alt="Smruthi Sri Datta" /> -->
+        <div class="photo-placeholder">👩‍💻</div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- Hero section (non-sticky) -->
-  <header class="container header">
-    <div class="hero">
-      <h1>AI Master's Student • Research Assistant • IEEE CloudCom 2025 Author</h1>
-      <p class="subtitle">
-        Focus: time-series modeling, smart agriculture, IoT-integrated deep learning, interpretable AI.
-      </p>
+<div class="divider"></div>
 
-      <div class="buttons">
-        <a class="btn primary" href="https://linkedin.com/in/smruthisridatta" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a class="btn" href="https://github.com/Smruthi-Sri-Datta" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="btn" href="mailto:dattasmruthi@gmail.com">Email</a>
-      </div>
-
-      <div class="chips">
-        <span class="chip">Python</span>
-        <span class="chip">Machine Learning</span>
-        <span class="chip">Deep Learning</span>
-        <span class="chip">TensorFlow</span>
-        <span class="chip">PyTorch</span>
-        <span class="chip">Time-Series</span>
-      </div>
+<!-- VOICEFORGE -->
+<section id="voiceforge">
+  <div class="container">
+    <div class="s-head reveal">
+      <div class="s-label">Featured Project</div>
+      <h2 class="s-title">VoiceForge</h2>
+      <p class="s-sub">A production-grade AI voice platform — deployed, live, and real users.</p>
     </div>
-  </header>
-
-  <main class="container">
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <h2>About</h2>
-      <p>
-        Smruthi Sri Datta is pursuing an M.S. in Artificial Intelligence at National Yunlin University of Science & Technology (NYUST), Taiwan.
-        Current work includes applied AI for smart agriculture and environmental monitoring as a Research Assistant in the Intelligent Data & Edge Analytics Lab (IDEAL Lab).
-      </p>
-      <p class="muted">
-        Location: Yunlin, Taiwan • Email: dattasmruthi@gmail.com
-      </p>
-    </section>
-
-    <!-- RESEARCH -->
-    <section id="research" class="section">
-      <h2>Featured Research</h2>
-      <div class="card">
-        <div class="card-head">
-          <h3>TCAN-AgriCloud</h3>
-          <span class="tag">Accepted • IEEE CloudCom 2025</span>
-        </div>
-        <p>
-          Cloud-enabled IoT-integrated deep learning framework for spatio-temporal crop yield prediction.
-          Uses Temporal Convolutional Networks (TCN) for temporal modeling, Kolmogorov–Arnold Networks (KAN) for adaptive nonlinear feature learning,
-          and SHAP-based interpretability.
-        </p>
-        <div class="links">
-          <a href="https://github.com/Smruthi-Sri-Datta/TCAN-AgriCloud" target="_blank" rel="noreferrer">Repository</a>
-          <a href="https://github.com/Smruthi-Sri-Datta/TCAN-AgriCloud/blob/main/docs/architecture.md" target="_blank" rel="noreferrer">Architecture Notes</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="section">
-      <h2>Skills</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Programming</h3>
-          <ul>
-            <li>Python</li>
-            <li>C++</li>
-            <li>Java</li>
-            <li>HTML / CSS</li>
-            <li>SQL (Basics)</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>AI / ML</h3>
-          <ul>
-            <li>Machine Learning</li>
-            <li>Deep Learning</li>
-            <li>NLP</li>
-            <li>Time-series forecasting</li>
-            <li>Interpretability (SHAP)</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Frameworks & Tools</h3>
-          <ul>
-            <li>TensorFlow</li>
-            <li>PyTorch</li>
-            <li>Scikit-learn</li>
-            <li>Pandas / NumPy</li>
-            <li>Flask</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section">
-      <h2>Experience</h2>
-
-      <div class="card">
-        <h3>Research Assistant — IDEAL Lab, NYUST (Sept 2024 – Present)</h3>
-        <ul>
-          <li>Applied AI to environmental monitoring and smart agriculture.</li>
-          <li>Drafted proposals on water quality, UAV salinity, and biomass/yield forecasting.</li>
-          <li>Extended TCAN-AgriCloud for scalable IoT-enabled precision agriculture.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Programmer Analyst Trainee — Cognizant (Sept 2023 – July 2024)</h3>
-        <ul>
-          <li>Contributed to banking-sector solutions with Spring Boot & Angular.</li>
-          <li>Worked on backend services, UI development, and Temenos T24.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Full Stack Intern — Cognizant (Mar 2023 – Aug 2023)</h3>
-        <ul>
-          <li>Built e-commerce web apps using Java, SQL, Angular, Maven, Spring.</li>
-          <li>Collaborated on REST APIs with Swagger; enhanced front-end functionality.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
-      <h2>Projects</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Autonomous River Cleaning Robot</h3>
-          <p>
-            Embedded systems + IoT project using GPS and Arduino UNO to collect floating debris.
+    <div class="vf-card reveal">
+      <div class="vf-grid">
+        <div class="vf-left">
+          <div class="vf-badge">🚀 Live in Production</div>
+          <h3 class="vf-title">Multi-language TTS<br/>+ Voice Cloning</h3>
+          <p class="vf-desc">
+            Full-stack AI voice platform supporting <strong>16 languages</strong> across two inference engines
+            (XTTS v2 + Sarvam AI), voice cloning from a 30-second sample, persistent audio history, and full authentication.
+            Async webhook architecture handles 43–90s GPU inference within Render's 30s timeout.
+            Costs <strong>$1.90/month</strong> to run.
           </p>
+          <div class="chips">
+            <span class="chip">FastAPI</span><span class="chip">React</span><span class="chip">RunPod Serverless</span>
+            <span class="chip">XTTS v2</span><span class="chip">Sarvam AI</span><span class="chip">Supabase</span>
+            <span class="chip">Docker</span><span class="chip">Webhook Pattern</span>
+          </div>
+          <div class="vf-links">
+            <a href="https://voiceforge-gamma.vercel.app" target="_blank" class="btn-amber">Live Demo ↗</a>
+            <a href="https://github.com/Smruthi-Sri-Datta/Voiceforge" target="_blank" class="btn-ghost">GitHub ↗</a>
+          </div>
         </div>
-
-        <div class="card">
-          <h3>Studyflow Concierge Agent</h3>
-          <p>Python-based concierge-style study planning agent.</p>
-          <div class="links">
-            <a href="https://github.com/Smruthi-Sri-Datta/studyflow-concierge-agent" target="_blank" rel="noreferrer">Repository</a>
+        <div class="vf-right">
+          <div class="arch-label">System Architecture</div>
+          <div class="arch-row">
+            <div class="arch-ico" style="background:rgba(232,160,32,0.12)">⚛️</div>
+            <div><div class="arch-row-name">React + Vite</div><div class="arch-row-sub">Vercel · CI/CD</div></div>
+          </div>
+          <div class="arch-arrow">↓ POST /api/generate</div>
+          <div class="arch-row">
+            <div class="arch-ico" style="background:rgba(61,138,74,0.12)">⚡</div>
+            <div><div class="arch-row-name">FastAPI</div><div class="arch-row-sub">Render · Auth · Webhook receiver</div></div>
+          </div>
+          <div class="arch-arrow">↓ Async /run → poll</div>
+          <div class="arch-row">
+            <div class="arch-ico" style="background:rgba(232,160,32,0.08)">🔥</div>
+            <div><div class="arch-row-name">RunPod Serverless GPU</div><div class="arch-row-sub">XTTS v2 · Sarvam AI inference</div></div>
+          </div>
+          <div class="arch-arrow">↓ Webhook → DB update</div>
+          <div class="arch-row">
+            <div class="arch-ico" style="background:rgba(61,138,74,0.08)">🗄️</div>
+            <div><div class="arch-row-name">Supabase</div><div class="arch-row-sub">PostgreSQL · File Storage</div></div>
+          </div>
+          <div class="vf-cost">
+            <span class="vf-cost-label">Monthly infrastructure cost</span>
+            <span class="vf-cost-val">~$1.90</span>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <div class="card">
-        <p><strong>Email:</strong> <a href="mailto:dattasmruthi@gmail.com">dattasmruthi@gmail.com</a></p>
-        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/smruthisridatta" target="_blank">linkedin.com/in/smruthisridatta</a></p>
-        <p><strong>GitHub:</strong> <a href="https://github.com/Smruthi-Sri-Datta" target="_blank">github.com/Smruthi-Sri-Datta</a></p>
+<div class="divider"></div>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container">
+    <div class="s-head reveal">
+      <div class="s-label">Research</div>
+      <h2 class="s-title">Published Work</h2>
+      <p class="s-sub">Applied ML across agriculture and healthcare — with real-world data and measurable outcomes.</p>
+    </div>
+
+    <div class="research-stack">
+
+      <!-- 01 TCAN -->
+      <div class="paper-card p1 reveal">
+        <div class="paper-top">
+          <div class="paper-badges">
+            <span class="badge badge-pub">● Published</span>
+            <span class="badge badge-award">🏆 Best Paper Award</span>
+          </div>
+          <div class="paper-num">01</div>
+        </div>
+        <div class="paper-body">
+          <div>
+            <h3 class="paper-title">TCAN-AgriCloud: A Cloud-Enabled IoT-Integrated Deep Learning Framework for Spatio-Temporal Crop Yield Prediction</h3>
+            <p class="paper-desc">
+              TCN + KAN hybrid architecture for spatio-temporal crop yield prediction.
+              Combines Temporal Convolutional Networks for long-range temporal patterns with
+              Kolmogorov–Arnold Networks for adaptive nonlinear feature learning.
+              SHAP-based interpretability for real-world agricultural decision-making.
+            </p>
+            <div class="paper-pills">
+              <span class="pill">TCN + <em>KAN</em></span>
+              <span class="pill">SHAP <em>Interpretability</em></span>
+              <span class="pill">IoT + <em>Cloud</em></span>
+              <span class="pill">Spatio-Temporal</span>
+            </div>
+            <div class="paper-venue">
+              IEEE CloudCom 2025 · 16th IEEE Int'l Conference on Cloud Computing Technology and Science · Shenzhen, China
+              <br/><a href="https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=TCAN-AgriCloud" target="_blank" class="paper-link">View on IEEE Xplore →</a>
+            </div>
+          </div>
+          <div class="metrics-side">
+            <div class="m-box"><div class="m-val">🏆</div><div class="m-lbl">Best Paper</div></div>
+            <div class="m-box"><div class="m-val" style="font-size:1rem">IEEE</div><div class="m-lbl">CloudCom 2025</div></div>
+            <div class="m-box"><div class="m-val g">SHAP</div><div class="m-lbl">Interpretable</div></div>
+          </div>
+        </div>
       </div>
-    </section>
 
-    <footer class="footer">
-      <p class="muted">© <span id="year"></span> Smruthi Sri Datta • Built with GitHub Pages</p>
-    </footer>
-  </main>
+      <!-- 02 PTK-Net -->
+      <div class="paper-card p2 reveal">
+        <div class="paper-top">
+          <div class="paper-badges"><span class="badge badge-review">● Under Review</span></div>
+          <div class="paper-num">02</div>
+        </div>
+        <div class="paper-body">
+          <div>
+            <h3 class="paper-title">PTK-Net: A Multimodal Framework for Cross-Year Crop Yield Generalization</h3>
+            <p class="paper-desc">
+              Multimodal yield forecasting combining remote sensing, climate, and soil data.
+              Achieves strong cross-year generalization across ~3,948 county-year samples,
+              demonstrating robustness to distribution shift across growing seasons.
+            </p>
+            <div class="paper-pills">
+              <span class="pill">R² = <em>0.921</em></span>
+              <span class="pill"><em>3,948</em> county-year samples</span>
+              <span class="pill">Cross-year <em>Generalization</em></span>
+              <span class="pill">Multimodal</span>
+            </div>
+            <div class="paper-venue"><em>Precision Agriculture</em> · Under Review</div>
+          </div>
+          <div class="metrics-side">
+            <div class="m-box"><div class="m-val">0.921</div><div class="m-lbl">R² Score</div></div>
+            <div class="m-box"><div class="m-val g" style="font-size:1.05rem">3,948</div><div class="m-lbl">Samples</div></div>
+          </div>
+        </div>
+      </div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+      <!-- 03 ATP-CALF-AD -->
+      <div class="paper-card p3 reveal">
+        <div class="paper-top">
+          <div class="paper-badges"><span class="badge badge-wip">📝 Manuscript in Preparation</span></div>
+          <div class="paper-num">03</div>
+        </div>
+        <div class="paper-body">
+          <div>
+            <h3 class="paper-title">Pause-Aware Language Modeling with Calibrated Multimodal Fusion for Alzheimer's Disease Detection</h3>
+            <p class="paper-desc">
+              ATP-CALF-AD: a three-pathway multimodal fusion pipeline for Alzheimer's detection from speech.
+              Fuses acoustic features (Whisper + BiLSTM + Attention), text semantics (ERNIE-Large),
+              and pause-augmented text (ERNIE-Base) with Platt-scaled probability calibration before late fusion.
+              Evaluated on DementiaBank Pitt Corpus against four recent SOTA baselines.
+            </p>
+            <div class="paper-pills">
+              <span class="pill">F1 = <em>0.902</em></span>
+              <span class="pill">AUC = <em>0.925</em></span>
+              <span class="pill">Whisper + <em>BiLSTM</em></span>
+              <span class="pill">ERNIE-Large</span>
+              <span class="pill">Platt Calibration</span>
+            </div>
+            <div class="paper-venue">National Ilan University · Summer Research Internship 2025</div>
+          </div>
+          <div class="sota-box">
+            <div class="sota-title">vs. SOTA Baselines</div>
+            <div class="sota-row"><span class="l">Bang et al. 2024</span><span class="r">F1: 0.873</span></div>
+            <div class="sota-row"><span class="l">Yang et al. 2024</span><span class="r">F1: 0.866</span></div>
+            <div class="sota-row"><span class="l">Li et al. 2024</span><span class="r">F1: 0.861</span></div>
+            <div class="sota-row"><span class="l">Lin & Wash. 2024</span><span class="r">F1: 0.857</span></div>
+            <div class="sota-hr"></div>
+            <div class="sota-row ours"><span class="l">ATP-CALF-AD</span><span class="r">F1: 0.902</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="s-head reveal">
+      <div class="s-label">Skills</div>
+      <h2 class="s-title">Tech Stack</h2>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="sk-group">
+        <div class="sk-title">ML & AI</div>
+        <div class="sk-tags">
+          <span class="sk-tag">PyTorch</span><span class="sk-tag">TensorFlow</span>
+          <span class="sk-tag">Hugging Face</span><span class="sk-tag">scikit-learn</span>
+          <span class="sk-tag">SHAP</span><span class="sk-tag">Whisper</span>
+          <span class="sk-tag">ERNIE</span><span class="sk-tag">XTTS v2</span>
+        </div>
+      </div>
+      <div class="sk-group">
+        <div class="sk-title">Backend & APIs</div>
+        <div class="sk-tags">
+          <span class="sk-tag">Python</span><span class="sk-tag">FastAPI</span>
+          <span class="sk-tag">SQLAlchemy</span><span class="sk-tag">PostgreSQL</span>
+          <span class="sk-tag">JWT Auth</span><span class="sk-tag">Webhook Pattern</span>
+          <span class="sk-tag">REST APIs</span>
+        </div>
+      </div>
+      <div class="sk-group">
+        <div class="sk-title">Frontend</div>
+        <div class="sk-tags">
+          <span class="sk-tag">React</span><span class="sk-tag">JavaScript</span>
+          <span class="sk-tag">HTML / CSS</span><span class="sk-tag">Vite</span>
+          <span class="sk-tag">Web Audio API</span>
+        </div>
+      </div>
+      <div class="sk-group">
+        <div class="sk-title">Infrastructure</div>
+        <div class="sk-tags">
+          <span class="sk-tag">Docker</span><span class="sk-tag">RunPod Serverless</span>
+          <span class="sk-tag">Vercel</span><span class="sk-tag">Render</span>
+          <span class="sk-tag">Supabase</span><span class="sk-tag">Git / GitHub</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="s-head reveal">
+      <div class="s-label">Experience</div>
+      <h2 class="s-title">Background</h2>
+    </div>
+    <div class="exp-list">
+      <div class="exp-row reveal">
+        <div class="exp-date">Sep 2024 – Present</div>
+        <div>
+          <div class="exp-org">NYUST · IDEAL Lab · Taiwan</div>
+          <div class="exp-role">Research Assistant — AI & Smart Agriculture</div>
+          <div class="exp-body">
+            <ul>
+              <li>Developed TCAN-AgriCloud: TCN+KAN hybrid for spatio-temporal crop yield prediction — <strong>IEEE CloudCom 2025 Best Paper Award</strong></li>
+              <li>Developed PTK-Net: multimodal yield forecasting achieving R²=0.921 on cross-year generalization across ~3,948 county-year samples (under review, <em>Precision Agriculture</em>)</li>
+              <li>Thesis: "A Spatiotemporal Framework for Data-Driven Agricultural Yield Forecasting"</li>
+            </ul>
+          </div>
+          <div class="exp-chips"><span class="chip">TCN</span><span class="chip">KAN</span><span class="chip">SHAP</span><span class="chip">PyTorch</span><span class="chip">Time-Series</span></div>
+        </div>
+      </div>
+      <div class="exp-row reveal">
+        <div class="exp-date">Jul – Aug 2025</div>
+        <div>
+          <div class="exp-org">National Ilan University · Taiwan</div>
+          <div class="exp-role">Summer Research Intern — Healthcare AI</div>
+          <div class="exp-body">
+            <ul>
+              <li>Built ATP-CALF-AD: multimodal Alzheimer's detection pipeline fusing acoustic (Whisper+BiLSTM), text (ERNIE-Large), and pause-aware (ERNIE-Base) pathways</li>
+              <li>Achieved F1=0.902, AUC=0.925 — outperforming 4 recent SOTA baselines on DementiaBank Pitt Corpus</li>
+              <li>Novel contribution: pause timing as learnable transformer signals with Platt-scaled calibration</li>
+            </ul>
+          </div>
+          <div class="exp-chips"><span class="chip">Whisper</span><span class="chip">ERNIE</span><span class="chip">BiLSTM</span><span class="chip">Multimodal Fusion</span><span class="chip">Calibration</span></div>
+        </div>
+      </div>
+      <div class="exp-row reveal">
+        <div class="exp-date">Jan 2025 – Present</div>
+        <div>
+          <div class="exp-org">Independent Project</div>
+          <div class="exp-role">AI Engineer — VoiceForge</div>
+          <div class="exp-body">
+            <ul>
+              <li>Built and deployed a production-grade AI voice platform — 16 languages, voice cloning, async GPU inference, full auth</li>
+              <li>Designed webhook + polling architecture to solve Render's 30s timeout for 43–90s GPU jobs</li>
+              <li>Running at $1.90/month on serverless infrastructure</li>
+            </ul>
+          </div>
+          <div class="exp-chips"><span class="chip">FastAPI</span><span class="chip">React</span><span class="chip">RunPod</span><span class="chip">Supabase</span><span class="chip">Docker</span></div>
+        </div>
+      </div>
+      <div class="exp-row reveal">
+        <div class="exp-date">Sep 2023 – Jul 2024</div>
+        <div>
+          <div class="exp-org">Cognizant Technology Solutions · India</div>
+          <div class="exp-role">Programmer Analyst Trainee</div>
+          <div class="exp-body">Delivered banking-sector solutions using Spring Boot, Angular, and Temenos T24. Backend services, REST APIs, and UI development for financial services clients.</div>
+          <div class="exp-chips"><span class="chip">Spring Boot</span><span class="chip">Angular</span><span class="chip">Temenos T24</span><span class="chip">REST APIs</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-box reveal">
+      <h2 class="contact-title">Let's build<br/>something.</h2>
+      <p class="contact-sub">Looking for AI Engineer, ML Engineer, or Data Scientist roles in Taiwan or remote. Open to full-time positions starting 2026.</p>
+      <div class="contact-row">
+        <a href="mailto:dattasmruthi@gmail.com" class="c-chip">✉️ dattasmruthi@gmail.com</a>
+        <a href="https://linkedin.com/in/smruthisridatta" target="_blank" class="c-chip">💼 LinkedIn</a>
+        <a href="https://github.com/Smruthi-Sri-Datta" target="_blank" class="c-chip">🐙 GitHub</a>
+        <a href="https://voiceforge-gamma.vercel.app" target="_blank" class="c-chip">🎙️ VoiceForge</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span>© 2026 Smruthi Sri Datta</span>
+      <span>HTML · CSS · JS · GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleTheme() {
+    const html = document.documentElement
+    const btn = document.getElementById('themeBtn')
+    if (html.dataset.theme === 'dark') {
+      html.dataset.theme = 'light'
+      btn.textContent = '🌙 Dark'
+    } else {
+      html.dataset.theme = 'dark'
+      btn.textContent = '☀️ Light'
+    }
+  }
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target) } })
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' })
+
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 4) * 0.07}s`
+    obs.observe(el)
+  })
+</script>
 </body>
 </html>
-
-
